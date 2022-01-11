@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:login/pages/login.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    initialRoute: '/login',
+    routes: {
+      '/login': (context)=>Login(),
+    },
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
-    );
-  }
-}
