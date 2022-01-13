@@ -86,7 +86,6 @@ class Login extends StatelessWidget {
                           if(controller.checkLogin()){
                             Get.toNamed('/home');
                           }
-
                         },
                         child: Text("Login",
                             style: TextStyle(
