@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:login/pages/login.dart';
+import 'package:login/view/pages/home.dart';
+import 'package:login/view/pages/login.dart';
+import 'package:get/get.dart';
 void main() {
-  runApp(MaterialApp(
-    initialRoute: '/login',
-    routes: {
-      '/login': (context)=>Login(),
-    },
+  runApp(GetMaterialApp(
+    initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => Login()),
+        GetPage(name: '/home', page: () => Home()),
+      ]
   ));
 }
 
