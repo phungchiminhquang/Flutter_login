@@ -82,9 +82,12 @@ class Login extends StatelessWidget {
                     width: double.infinity,
                     height: 56,
                     child: ElevatedButton(
-                        onPressed: (){
-                          if(controller.checkLogin()){
+                        onPressed: ()async{
+                          if(await controller.checkLogin()){
                             Get.toNamed('/home');
+                          }
+                          else{
+                            Get.snackbar("Error", "username or password is wrong");
                           }
                         },
                         child: Text("Login",
