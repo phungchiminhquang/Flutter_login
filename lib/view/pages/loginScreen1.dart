@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login/controllers/loginController.dart';
 
-class Login extends StatelessWidget {
-  Login({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  LoginScreen({Key? key}) : super(key: key);
   final LoginController controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,8 @@ class Login extends StatelessWidget {
                             Get.toNamed('/home');
                           }
                           else{
-                            Get.snackbar("Error", "username or password is wrong");
+                            Get.closeAllSnackbars();
+                            Get.snackbar("Error", "username or password is wrong",isDismissible: true,);
                           }
                         },
                         child: Text("Login",

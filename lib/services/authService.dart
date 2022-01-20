@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:login/models/accessToken.dart';
+import 'package:login/models/accessTokenModel.dart';
 
 class AuthService {
   static var client = http.Client();

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'package:get/state_manager.dart';
-import 'package:login/services/auth_service.dart';
+import 'package:login/models/accessTokenModel.dart';
+import 'package:login/services/authService.dart';
 
 class LoginController extends GetxController {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   late TextEditingController userNameController, passwordController;
+  AccessToken? accessToken = null.obs();
 
   var userName = "";
   var password = '';
@@ -31,7 +33,8 @@ class LoginController extends GetxController {
   }
 
   Future<bool> fetchAccessToken() async {
-    var accessToken = await AuthService.fetchAccessToken(userName, password);
+    accessToken = await AuthService.fetchAccessToken(userName, password);
+
     if(accessToken!=null) {
       return true;
     } else {
