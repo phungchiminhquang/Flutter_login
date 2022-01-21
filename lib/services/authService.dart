@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:login/models/accessTokenModel.dart';
+import 'package:login/data/globalConfig.dart' as globalConfig;
 
 class AuthService {
   static var client = http.Client();
@@ -10,9 +11,9 @@ class AuthService {
       'username': username,
       'password': password,
       'grant_type': 'password',
-      'client_id': 'fbb8c58d5157474d8ce32a10b9b0117c'
+      'client_id': globalConfig.clientId
     };
-    var url = Uri.parse('http://login.vnopenlab.com/oauth2/token');
+    var url = Uri.parse(globalConfig.authUserCreUrl);
 
     var response = await client.post(
       url,
